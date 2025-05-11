@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ student_name }}!</h1>
+        <h2>Available Quizzes</h2>
+        {% if quizzes %}
+            <ul>
+            {% for quiz in quizzes %}
+                <li>
+                    <strong>{{ quiz.subject }} ({{ quiz.section }})</strong>
+                    <a href="{{ url_for('attempt_quiz', quiz_id=quiz.id) }}">Attempt</a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No quizzes available right now.</p>
+        {% endif %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>

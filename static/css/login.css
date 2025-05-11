@@ -1,0 +1,25 @@
+body {
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+}
+
+.card {
+    border-radius: 15px;
+    background-color: #fff;
+    animation: slideIn 0.5s ease;
+}
+
+form input:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

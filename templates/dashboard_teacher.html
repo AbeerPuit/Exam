@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Quiz</h2>
+        <form id="quizForm" method="POST" action="/upload_question">
+            <div id="questionsContainer">
+                <div class="question-block">
+                    <label>Subject:</label>
+                    <input type="text" name="subject[]" required>
+
+                    <label>Section:</label>
+                    <input type="text" name="section[]" required>
+
+                    <label>Question:</label>
+                    <textarea name="question[]" rows="3" required></textarea>
+
+                    <label>Option A:</label>
+                    <input type="text" name="option_a[]" required>
+
+                    <label>Option B:</label>
+                    <input type="text" name="option_b[]" required>
+
+                    <label>Option C:</label>
+                    <input type="text" name="option_c[]" required>
+
+                    <label>Option D:</label>
+                    <input type="text" name="option_d[]" required>
+
+                    <label>Correct Answer:</label>
+                    <select name="correct[]" required>
+                        <option value="">--Select--</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" onclick="addQuestion()">+ Add Another Question</button>
+            <button type="submit">Submit Quiz</button>
+        </form>
+    </div>
+
+    <script>
+        function addQuestion() {
+            const container = document.getElementById('questionsContainer');
+            const block = document.querySelector('.question-block');
+            const newBlock = block.cloneNode(true);
+
+            newBlock.querySelectorAll('input, textarea, select').forEach(input => {
+                input.value = '';
+            });
+
+            container.appendChild(newBlock);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz App Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Online Quiz Platform</h1>
+        <a href="{{ url_for('login_teacher') }}">Teacher Login</a><br><br>
+        <a href="{{ url_for('login_student') }}">Student Login</a>
+    </div>
+</body>
+</html>

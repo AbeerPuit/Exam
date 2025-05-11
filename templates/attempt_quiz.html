@@ -1,0 +1,15 @@
+<form method="POST">
+    {% for q in questions %}
+        <div>
+            <p><strong>{{ loop.index }}. {{ q.question }}</strong></p>
+            {% for key, val in q.options.items() %}
+                <label>
+                    <input type="radio" name="question{{ loop.index0 }}" value="{{ key }}">
+                    {{ key }}. {{ val }}
+                </label><br>
+            {% endfor %}
+        </div>
+        <hr>
+    {% endfor %}
+    <button type="submit">Submit</button>
+</form>

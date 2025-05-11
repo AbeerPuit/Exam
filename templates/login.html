@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Quiz Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body class="bg-light">
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4 rounded" style="width: 100%; max-width: 400px;">
+        <h3 class="text-center mb-3">Quiz Portal Login</h3>
+
+        <ul class="nav nav-tabs mb-3" id="loginTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="teacher-tab" data-bs-toggle="tab" data-bs-target="#teacher" type="button" role="tab">Teacher</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="student-tab" data-bs-toggle="tab" data-bs-target="#student" type="button" role="tab">Student</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="loginTabContent">
+            <!-- Teacher Login -->
+            <div class="tab-pane fade show active" id="teacher" role="tabpanel">
+                <form action="/teacher_login" method="POST">
+                    <div class="mb-3">
+                        <label for="teacherUsername" class="form-label">Username</label>
+                        <input type="text" class="form-control" name="username" id="teacherUsername" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="teacherPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" id="teacherPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login as Teacher</button>
+                </form>
+            </div>
+
+            <!-- Student Login -->
+            <div class="tab-pane fade" id="student" role="tabpanel">
+                <form action="/student_login" method="POST">
+                    <div class="mb-3">
+                        <label for="studentUsername" class="form-label">Username</label>
+                        <input type="text" class="form-control" name="username" id="studentUsername" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="studentPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" id="studentPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Login as Student</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

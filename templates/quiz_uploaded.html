@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Uploaded</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Uploaded Successfully!</h1>
+        <p>Subject: {{ subject }}</p>
+        <p>Section: {{ section }}</p>
+        <a href="{{ url_for('dashboard_teacher') }}">Back to Dashboard</a>
+    </div>
+</body>
+</html>

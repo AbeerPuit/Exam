@@ -1,0 +1,10 @@
+<ul>
+    {% for res in responses %}
+        <li>
+            <strong>{{ res.question }}</strong><br>
+            Your Answer: {{ res.selected }}<br>
+            Correct Answer: {{ res.correct }}<br>
+            Status: {{ res.status }}
+        </li>
+    {% endfor %}
+</ul>
